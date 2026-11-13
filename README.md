@@ -3,7 +3,7 @@
 <div align="center">
 
 [![Platform](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/)
-[![Java](https://img.shields.io/badge/Java_8-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
+[![Java](https://img.shields.io/badge/Java_8-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://docs.oracle.com/javase/8/docs/)
 [![API](https://img.shields.io/badge/API-24%2B-brightgreen?style=for-the-badge)](https://developer.android.com/about/versions/nougat)
 [![FRC 2024](https://img.shields.io/badge/FRC-2024_Crescendo-F57E25?style=for-the-badge)](https://firstfrc.blob.core.windows.net/frc2024/Manual/2024GameManual.pdf)
 
