@@ -168,11 +168,11 @@ adb install app/build/outputs/apk/debug/app-debug.apk
 
 ## What Came Next
 
-In 2025, I rewrote the entire scouting ecosystem in **Dart/Flutter** with **SQLite** for local persistence:
+In 2025, I rewrote the entire scouting ecosystem in **Dart/Flutter**:
 
-- Cross-platform (Android + iOS potential)
-- Relational database replaces delimiter-separated strings
-- Offline sync capabilities
+- Cross-platform Flutter app (Android)
+- Same QR transfer, scanned into a Python/customtkinter desktop intake app
+- SQLite instead of Excel, so questions become SQL queries
 - 39 fields for the 2025 Reefscape game
 
 See the full suite of apps at [github.com/aamir-frc-scouting](https://github.com/aamir-frc-scouting).
