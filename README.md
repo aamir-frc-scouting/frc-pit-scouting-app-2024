@@ -7,7 +7,7 @@
 [![API](https://img.shields.io/badge/API-24%2B-brightgreen?style=for-the-badge)](https://developer.android.com/about/versions/nougat)
 [![FRC 2024](https://img.shields.io/badge/FRC-2024_Crescendo-F57E25?style=for-the-badge)](https://firstfrc.blob.core.windows.net/frc2024/Manual/2024GameManual.pdf)
 
-**Android app that standardizes pit interviews into 26 structured fields, exported via QR code for offline data collection at FRC competitions.**
+**Android app that standardizes pit interviews into 26 structured fields, saved as delimited strings in a text file for offline data collection at FRC competitions.**
 
 [Features](#features) · [Screenshots](#screenshots) · [Architecture](#architecture) · [Usage Stats](#usage-stats) · [Build](#build-instructions)
 
@@ -17,11 +17,11 @@
 
 ## Background
 
-My freshman year (2022), I served as a scout lead on [FRC Team 1730](https://www.thebluealliance.com/team/1730/2022) and learned the ropes from seniors Heath Crump and Caden Findlay. That year, the team won the [Newton Division](https://www.thebluealliance.com/event/2022new) and competed on [Einstein](https://www.thebluealliance.com/event/2022cmptx). Sophomore year, I took over as sole developer and built the [2023 match scouting app](https://github.com/aamir-frc-scouting/frc-scouting-app-2023) from scratch — Java, XML layouts, QR encoding into Excel.
+My freshman year (2022), I served as a scout lead on [FRC Team 1730](https://www.thebluealliance.com/team/1730/2022) and learned the ropes from seniors Heath Crump and Caden Findlay. That year, the team won the [Newton Division](https://www.thebluealliance.com/event/2022new) and competed on [Einstein](https://www.thebluealliance.com/event/2022cmptx). Sophomore year, I took over as sole developer and built the [2023 match scouting app](https://github.com/aamir-frc-scouting/frc-scouting-app-2023) from scratch: Java, XML layouts, and QR codes scanned into Excel.
 
-Junior year (this app), I kept the [match scouting app](https://github.com/aamir-frc-scouting/frc-scouting-app-2024) running for Crescendo and identified a new bottleneck: pit scouting. Paper forms got lost, scouts asked inconsistent questions, and transcribing robot specs into spreadsheets wasted hours. This app standardizes the entire pit interview workflow — every scout asks the same 26 questions, data exports instantly via QR, and the strategy team has clean data before alliance selection.
+Junior year (this app), I kept the [match scouting app](https://github.com/aamir-frc-scouting/frc-scouting-app-2024) running for Crescendo and identified a new bottleneck: pit scouting. Paper forms got lost, scouts asked inconsistent questions, and transcribing robot specs into spreadsheets wasted hours. This app standardizes the pit interview. Every scout asks the same 26 questions, each interview is appended to a text file on the tablet, and QR codes generated separately from those strings carried the data to the scanner so the strategy team had clean data before alliance selection.
 
-— [Aamir Abatiyow](https://github.com/AamirAbatiyow)
+[Aamir Abatiyow](https://github.com/AamirAbatiyow)
 
 ## Screenshots
 
@@ -42,12 +42,12 @@ Junior year (this app), I kept the [match scouting app](https://github.com/aamir
 
 ## Features
 
-- **Guided 4-screen flow** — Ensures scouts collect complete data in a consistent order
-- **Crescendo-specific fields** — Intake source/type, amp/speaker/trap scoring, climb/harmonize capabilities
-- **Compact QR-ready payload** — 26 fields encoded in a delimiter-separated format for fast scanning
-- **Persistent scout name** — Reduces repetitive data entry between teams
-- **Tablet-optimized layout** — Large touch targets and high-contrast Team Driven colors (yellow/dark grey)
-- **Offline-first** — No network required; all data stored locally until QR export
+- **Guided 4-screen flow**: Ensures scouts collect complete data in a consistent order
+- **Crescendo-specific fields**: Intake source/type, amp/speaker/trap scoring, climb/harmonize capabilities
+- **Compact delimited payload**: 26 fields written as one `!`/`*`-delimited string per team
+- **Persistent scout name**: Reduces repetitive data entry between teams
+- **Tablet-optimized layout**: Large touch targets and high-contrast Team Driven colors (yellow/dark grey)
+- **Offline-first**: No network required. Each interview is appended to `pit_scouting.txt` on the tablet, and QR codes were generated separately for the scanner workflow
 
 ## Usage Stats
 
@@ -62,7 +62,7 @@ Junior year (this app), I kept the [match scouting app](https://github.com/aamir
 | [Green Country Regional](https://www.thebluealliance.com/event/2024oktu) | 43 | 1,118 |
 | [Heartland Regional](https://www.thebluealliance.com/event/2024ksla) | 36 | 936 |
 | [Greater Kansas City Regional](https://www.thebluealliance.com/event/2024mokc) | 42 | 1,092 |
-| [Houston Champs — Milstein Division](https://www.thebluealliance.com/event/2024mil) | 75 | 1,950 |
+| [Houston Champs, Milstein Division](https://www.thebluealliance.com/event/2024mil) | 75 | 1,950 |
 | [MO-KAN State Championship](https://www.thebluealliance.com/event/2024mksc) | 34 | 884 |
 
 </td>
@@ -83,7 +83,7 @@ Junior year (this app), I kept the [match scouting app](https://github.com/aamir
 
 <sub>Data points = teams × 26 fields. See [Team 1730 on TBA](https://www.thebluealliance.com/team/1730/2024).</sub>
 
-**On-field results supported:** [Green Country Regional](https://www.thebluealliance.com/event/2024oktu) winners; [Heartland Regional](https://www.thebluealliance.com/event/2024ksla) finalists + Impact Award; [Greater Kansas City Regional](https://www.thebluealliance.com/event/2024mokc) #1 seed; [Milstein Division](https://www.thebluealliance.com/event/2024mil) finalists; [MO-KAN](https://www.thebluealliance.com/event/2024mksc) winners.
+**On-field results supported:** [Green Country Regional](https://www.thebluealliance.com/event/2024oktu) winners, [Heartland Regional](https://www.thebluealliance.com/event/2024ksla) finalists and Impact Award, [Greater Kansas City Regional](https://www.thebluealliance.com/event/2024mokc) #1 seed, [Milstein Division](https://www.thebluealliance.com/event/2024mil) finalists, and [MO-KAN](https://www.thebluealliance.com/event/2024mksc) winners.
 
 ## Architecture
 
@@ -93,27 +93,25 @@ Junior year (this app), I kept the [match scouting app](https://github.com/aamir
 flowchart LR
     subgraph Android App
         A[Scout fills<br/>4 screens] --> B[RecordsActivity.Info<br/>static data store]
-        B --> C[createJSON<br/>serializes 26 fields]
+        B --> C[createJSON<br/>builds delimited string]
+        C --> D[Append to<br/>pit_scouting.txt]
     end
     
-    C --> D[Text file export]
-    D --> E[QR Code Generator]
-    
-    subgraph Competition Pit
-        E --> F[📱 Display QR Code]
-        F --> G[📷 Scan with<br/>barcode scanner]
+    subgraph Transfer
+        D --> E[QR codes generated<br/>separately from strings]
+        E --> G[📷 Scan with<br/>barcode scanner]
     end
     
     subgraph Excel Workbook
         G --> H[Parse delimited<br/>payload]
         H --> I[Pit Data Sheet]
-        I --> J[Pivot Tables<br/>& Analysis]
+        I --> J[Filtering and<br/>Pivot Tables]
     end
 ```
 
-### QR Payload Format
+### Payload Format
 
-The app encodes all 26 fields into a compact delimiter-separated string:
+The app writes all 26 fields as one compact delimiter-separated string per team in `pit_scouting.txt`. QR codes were generated from these strings outside the app:
 
 ```
 !{scoutName}*{teamNumber}*{teamName}*{dimensions}*...
@@ -200,7 +198,7 @@ Senior year (2025), I rewrote the entire scouting ecosystem in Dart/Flutter:
 | 2025 | [Match Scouting](https://github.com/aamir-frc-scouting/frc-scouting-app-2025) | Dart/Flutter | 3 events, 44K data points |
 | 2025 | [Pit Scouting](https://github.com/aamir-frc-scouting/frc_pit_scouting_app_2025) | Dart/Flutter | 147 teams, 39 fields |
 
-The 2025 rewrite kept the QR transfer: Flutter apps generate the QR code, and a Python/customtkinter desktop intake app scans, validates, and inserts each record into SQLite — so strategy questions become SQL queries instead of Excel formulas.
+The 2025 rewrite kept the QR transfer and moved QR generation into the apps. From the Greater Kansas City Regional on, a Python/customtkinter desktop intake app scanned, validated, and inserted each record into SQLite, so strategy questions became SQL queries instead of Excel filters and pivot tables.
 
 ## Tech Stack
 
@@ -211,7 +209,7 @@ The 2025 rewrite kept the QR transfer: Flutter apps generate the QR code, and a 
 | UI | ConstraintLayout, Material Components |
 | Build System | Gradle 8.2, AGP 8.2.2 |
 | Data Format | Delimiter-separated string (`!`/`*`) |
-| Data Import | Excel (external) |
+| Data Analysis | Excel (filtering and pivot tables) |
 
 ## License
 
